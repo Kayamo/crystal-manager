@@ -1,0 +1,16 @@
+{
+    "name": "crystal-manager",
+    "author": "Kayamo",
+    "version": "1.0",
+    "description": "Takes care of crystals when switching characters for MT Dream (Menma).",
+    "options": {
+        "niceName": "CM",
+        "guiName": "CM",
+        "settingsVersion": 1,
+        "settingsFile": "config.json",
+        "settingsMigrator": "settings_migrator.js",
+        "settingsAutosaveOnClose": true
+    },
+    "servers": ["https://raw.githubusercontent.com/Kayamo/crystal-manager/master/"],
+    "conflicts": ["relog"]
+}
