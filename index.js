@@ -5,7 +5,7 @@ module.exports = function crystalManager(dispatch) {
     dispatch.game.initialize('inventory')
     const inventory = dispatch.game.inventory;
 
-    dispatch.dispatch.addDefinition('C_MOVE_ITEM', 999, [ 
+    dispatch.dispatch.addDefinition('C_MOVE_ITEM', 999, [
         ['count', 'uint32'],
         ['packetCount', 'uint32'],
         ['gameId', 'uint64'],
@@ -15,7 +15,7 @@ module.exports = function crystalManager(dispatch) {
         ['unk3', 'uint32'],
         ['slot', 'uint32'],
     ]);
-    dispatch.dispatch.addDefinition('C_UNEQUIP_ITEM', 999, [ 
+    dispatch.dispatch.addDefinition('C_UNEQUIP_ITEM', 999, [
         ['count', 'uint32'],
         ['packetCount', 'uint32'],
         ['gameId', 'uint64'],
@@ -24,7 +24,7 @@ module.exports = function crystalManager(dispatch) {
         ['unk2', 'uint32'],
         ['item', 'uint32'],
     ]);
-    dispatch.dispatch.addDefinition('C_GET_WARE_ITEM', 999, [ 
+    dispatch.dispatch.addDefinition('C_GET_WARE_ITEM', 999, [
         ['count', 'uint32'],
         ['packetCount', 'uint32'],
         ['gameId', 'uint64'],
@@ -68,20 +68,20 @@ module.exports = function crystalManager(dispatch) {
     ]
 
     const enable = () => {
-        hooks.push(dispatch.hook("C_RETURN_TO_LOBBY", 1, async () => {
+        hooks.push(dispatch.hook("C_RETURN_TO_LOBBY", 1, { filter: { fake: null, modified: null, silenced: null } }, async () => {
             unequipCrystals();
             await sleep(dispatch.settings.delay)
             bankCrystals();
         }))
 
-        hooks.push(dispatch.hook("C_EXIT", 1, async() => {
+        hooks.push(dispatch.hook("C_EXIT", 1, { filter: { fake: null, modified: null, silenced: null } }, async () => {
             unequipCrystals();
             await sleep(dispatch.settings.delay)
             bankCrystals();
         }))
 
-        hooks.push(dispatch.hook("S_LOGIN", 14, () => {
-            dispatch.hookOnce("S_VISIT_NEW_SECTION", 1, async() => {
+        hooks.push(dispatch.hook("S_LOGIN", 14, { filter: { fake: null, modified: null, silenced: null } }, () => {
+            dispatch.hookOnce("S_VISIT_NEW_SECTION", 1, async () => {
                 await sleep(dispatch.settings.delay)
                 unbankCrystals();
                 await sleep(dispatch.settings.delay)
