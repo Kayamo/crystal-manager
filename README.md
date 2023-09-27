@@ -12,3 +12,7 @@ Automatically banks crystals either currently equipped or in inventory at logout
 Make sure you have enough empty slots in your inventory and 1st bank page.
 
 If you do not want any crystals touched, put them into the bank on any other page but 1st.
+
+## Credits
+
+Thank you Kasea for this beautiful [library](https://github.com/tera-toolbox-mods/library).

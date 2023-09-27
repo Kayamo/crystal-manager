@@ -12,5 +12,8 @@
         "settingsAutosaveOnClose": true
     },
     "servers": ["https://raw.githubusercontent.com/Kayamo/crystal-manager/master/"],
-    "conflicts": ["relog"]
+    "conflicts": ["relog"],
+    "dependencies": {
+        "library": "https://raw.githubusercontent.com/Kaseaa/library/master/module.json"
+    }
 }
